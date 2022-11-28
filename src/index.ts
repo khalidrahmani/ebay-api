@@ -10,7 +10,7 @@ import OAuth2 from './auth/oAuth2';
 import {ContentLanguage, Locale, MarketplaceId, SiteId} from './enums';
 import {ApiEnvError} from './errors';
 import {IEBayApiRequest} from './request';
-import {AppConfig, ClientAlerts, Finding, Keyset, Merchandising, Shopping, Trading} from './types';
+import {AppConfig, Keyset } from './types';
 
 const defaultConfig: Omit<AppConfig, keyof Keyset> = {
   sandbox: false,
@@ -74,12 +74,7 @@ class eBayApi extends Api {
   private _postOrder?: PostOrder;
   private _sell?: Sell;
 
-  // Traditional API
-  private _trading?: Trading;
-  private _finding?: Finding;
-  private _shopping?: Shopping;
-  private _clientAlerts?: ClientAlerts;
-  private _merchandising?: Merchandising;
+
 
   /**
    * @param {AppConfig} config the app config
@@ -116,26 +111,7 @@ class eBayApi extends Api {
     return this._sell || (this._sell = this.factory.createSellApi());
   }
 
-  // Traditional
-  get trading(): Trading {
-    return this._trading || (this._trading = this.factory.createTradingApi());
-  }
 
-  get finding(): Finding {
-    return this._finding || (this._finding = this.factory.createFindingApi());
-  }
-
-  get shopping(): Shopping {
-    return this._shopping || (this._shopping = this.factory.createShoppingApi());
-  }
-
-  get clientAlerts(): ClientAlerts {
-    return this._clientAlerts || (this._clientAlerts = this.factory.createClientAlertsApi());
-  }
-
-  get merchandising(): Merchandising {
-    return this._merchandising || (this._merchandising = this.factory.createMerchandisingApi());
-  }
 }
 
 export = eBayApi

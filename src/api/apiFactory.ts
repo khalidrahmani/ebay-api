@@ -1,4 +1,3 @@
-import {ClientAlerts, Finding, Shopping, Trading, Merchandising} from '../types';
 import Api from './';
 import RestfulApi, {IRestful} from './restful/';
 import {Browse, Buy, Deal, Feed, Marketing as BuyMarketing, MarketplaceInsights, Offer, Order} from './restful/buy';
