@@ -21,7 +21,6 @@ import {
   Recommendation,
   Sell
 } from './restful/sell';
-import Traditional from './traditional';
 
 /**
  * Factory class to create RESTFul API or Traditional API.
@@ -88,25 +87,7 @@ export default class ApiFactory extends Api {
 
 
 
-  public createTradingApi(): Trading {
-    return this.traditional.createTradingApi();
-  }
 
-  public createShoppingApi(): Shopping {
-    return this.traditional.createShoppingApi();
-  }
-
-  public createFindingApi(): Finding {
-    return this.traditional.createFindingApi();
-  }
-
-  public createClientAlertsApi(): ClientAlerts {
-    return this.traditional.createClientAlertsApi();
-  }
-
-  public createMerchandisingApi(): Merchandising {
-    return this.traditional.createMerchandisingApi();
-  }
 
   // tslint:disable-next-line:variable-name
   private createRestfulApi<T extends RestfulApi>(RestfulApiClass: IRestful): T {
