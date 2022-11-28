@@ -4,7 +4,7 @@ import XMLRequest from '../api/traditional/XMLRequest';
 import {IEBayApiRequest} from '../request';
 import {AppConfig} from '../types';
 
-const log = debug('ebay:authNAuth');
+//const log = debug('ebay:authNAuth');
 
 export type AuthToken = {
   eBayAuthToken: string,

@@ -5,7 +5,7 @@ import {Commerce} from './api/restful/commerce';
 import {Developer} from './api/restful/developer';
 import {PostOrder} from './api/restful/postOrder';
 import {Sell} from './api/restful/sell';
-import AuthNAuth from './auth/authNAuth';
+//import AuthNAuth from './auth/authNAuth';
 import OAuth2 from './auth/oAuth2';
 import {ContentLanguage, Locale, MarketplaceId, SiteId} from './enums';
 import {ApiEnvError} from './errors';
@@ -60,7 +60,7 @@ class eBayApi extends Api {
   }
 
   // Shortcuts to auth
-  public readonly authNAuth: AuthNAuth;
+  //public readonly authNAuth: AuthNAuth;
   public readonly oAuth2: OAuth2;
   // tslint:disable-next-line:variable-name
   public readonly OAuth2: OAuth2;
@@ -91,7 +91,7 @@ class eBayApi extends Api {
     this.factory = new ApiFactory(this.config, this.req, this.auth);
 
     // Shortcuts
-    this.authNAuth = this.auth.authNAuth;
+    //this.authNAuth = this.auth.authNAuth;
     this.OAuth2 = this.auth.OAuth2;
     this.oAuth2 = this.OAuth2;
   }

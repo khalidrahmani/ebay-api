@@ -171,21 +171,15 @@ export default class Traditional extends Api {
   }
 
   private getConfig(api: TraditionalApi, callName: string, apiConfig: TraditionalApiConfig) {
-    const eBayAuthToken = this.auth.authNAuth.eBayAuthToken;
     const userAccessToken = this.auth.OAuth2.getUserAccessToken();
-    const useIaf = (!eBayAuthToken || userAccessToken && apiConfig.useIaf);
-
     return {
       ...apiConfig,
       xmlns: api.xmlns,
       endpoint: api.endpoint[this.config.sandbox ? 'sandbox' : 'production'],
       headers: {
-        ...api.headers(callName, userAccessToken && useIaf ? userAccessToken : undefined),
+        ...api.headers(callName, userAccessToken),
         ...apiConfig.headers
-      },
-      ...(eBayAuthToken && !useIaf && {
-        eBayAuthToken
-      })
+      }
     };
   }
 
