@@ -27,7 +27,6 @@ import Traditional from './traditional';
  * Factory class to create RESTFul API or Traditional API.
  */
 export default class ApiFactory extends Api {
-  private _traditional?: Traditional;
   private _restful: any = {};
 
   public createBuyApi(): Buy {
@@ -87,13 +86,7 @@ export default class ApiFactory extends Api {
     };
   }
 
-  get traditional() {
-    if (this._traditional) {
-      return this._traditional;
-    }
 
-    return (this._traditional = new Traditional(this.config, this.req, this.auth));
-  }
 
   public createTradingApi(): Trading {
     return this.traditional.createTradingApi();
